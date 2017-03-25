@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="account/layout">
+<head><title>普通用户</title></head>
+<body>
+<div layout:fragment="account-content">
+    <div class="ibox">
+        <div class="ibox-title">
+
+            <form method="get" th:action="@{/users/search}" class="pull-right mail-search">
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm" name="q" placeholder="用户名、邮箱、电话..."/>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary">搜索</button>
+                    </div>
+                </div>
+            </form>
+
+            <div data-toggle="buttons" class="btn-group pull-right" style="margin-right: 10px">
+                <label class="btn btn-sm btn-white active">所有</label>
+                <label class="btn btn-sm btn-white">正常</label>
+                <label class="btn btn-sm btn-white">未审核</label>
+                <label class="btn btn-sm btn-white">已暂停</label>
+            </div>
+
+            <h2>普通用户</h2>
+        </div>
+        <div class="ibox-content">
+            <div class="content-container">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>公司组织</th>
+                            <th>客服组</th>
+                            <th width="200">邮箱</th>
+                            <th width="130">电话</th>
+                            <th width="130">创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="account : ${page.content}">
+                            <td>
+                                <a href="detail/layout.html"
+                                   th:href="@{/accounts/{id}(id=${account.id})}"
+                                   th:text="${account.nickname}">Anna Smith</a>
+                            </td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td th:text="${account.email}">anna.smith@example.com</td>
+                            <td th:text="${account.phone}">-</td>
+                            <td th:text="${#dates.format(account.createdAt, 'yyyy-MM-dd HH:mm')}">2016-11-22 14:48</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div th:unless="${page.totalPages}">
+                    <div class="middle-box text-center">
+                        <h3 class="font-bold">没有用户</h3>
+                    </div>
+                </div>
+
+                <div th:replace="element/pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

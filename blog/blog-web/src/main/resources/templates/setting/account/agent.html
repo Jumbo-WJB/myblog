@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="setting/index">
+<head><title>客服坐席设置 </title></head>
+<body>
+<div layout:fragment="setting-content">
+    <div class="ibox">
+        <div class="ibox-title">
+            <ol class="breadcrumb">
+                <li class="active">
+                    <strong> 客服坐席设置 </strong>
+                </li>
+            </ol>
+        </div>
+        <div class="ibox-content">
+            <form method="get" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 删除工单 </label>
+                    <div class="col-sm-10">
+                        <div class="select-group">
+                            <label class="checkbox-inline"><input type="checkbox" value="option1"/> 客服人员可以删除工单 </label>
+                        </div>
+                        <small> 开启则表示客服可以执行永久删除工单的操作 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 敏感信息过滤 </label>
+                    <div class="col-sm-10">
+                        <div class="select-group">
+                            <label class="checkbox-inline"><input type="checkbox" value="option1"/> 开启 </label>
+                        </div>
+                        <small> 开启后，可以禁止客服查看用户手机号的完整信息 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">客服组名称</label>
+                    <div class="col-sm-6">
+                        <input id="userName" name="userName" type="text" class="form-control required"
+                               aria-required="true"/>
+                        <small> 设置客服组对于普通用户的显示名称，默认为“受理客服组” </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">客服名称</label>
+                    <div class="col-sm-6">
+                        <input id="userName" name="userName" type="text" class="form-control required"
+                               aria-required="true"/>
+                        <small> 置客服对于普通用户的显示名称，默认为“受理客服” </small>
+
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">客服组名称</label>
+                    <div class="col-sm-6">
+                        <input id="userName" name="userName" type="textarea" class="form-control required"
+                               aria-required="true"/>
+                        <small> 客服在受理工单和发布文档或回复时显示的客服签名的全局模板，{{signature}}标签代表每个客服自己设置的签名内容 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <button class="btn btn-primary" type="submit">保存设置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

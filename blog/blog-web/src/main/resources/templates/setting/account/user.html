@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="setting/index">
+<head><title>普通用户设置</title></head>
+<body>
+<div layout:fragment="setting-content">
+    <div class="ibox">
+        <div class="ibox-title">
+            <ol class="breadcrumb">
+                <li class="active">
+                    <strong> 普通用户设置 </strong>
+                </li>
+            </ol>
+        </div>
+        <div class="ibox-content">
+            <form method="get" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 提醒用户注册 </label>
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="option1"/> 开启 </label>
+                        <br/>
+                        <small> 是否开放用户注册。开启则任何用户都可以注册并提交工单和查看工单；关闭后，用户只能在后台由管理员添加，且用户必须要登录后才可以提交工单。 </small>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label"><h4>设置用户注册策略</h4></label>
+                                <select class="form-control">
+                                    <option>允许匿名用户提交工单并自动注册</option>
+                                    <option>用户必须登录后才能提交工单</option>
+                                    <option>用户注册后必须核审后才能提交工单</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 提醒用户注册 </label>
+                    <div class="col-sm-10">
+                        <div class="select-group">
+                            <label class="checkbox-inline"><input type="checkbox" value="option1"/> 开启 </label>
+                        </div>
+                        <small> 匿名用户提交工单或通过SSO创建的用户，是否发送欢迎邮件让其设置密码登录云客服平台 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 白名单 </label>
+                    <div class="col-sm-6">
+                        <input id="userName" name="userName" type="text" class="form-control required"
+                               aria-required="true"/>
+                        <small> 总是允许邮箱为白名单设置的用户注册。可以输入具体的邮箱地址或域名，多个地址请用英文逗号(,)隔开。例如：sample.com, admin@sample.com </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 黑名单 </label>
+                    <div class="col-sm-6">
+                        <input id="userName" name="userName" type="text" class="form-control required"
+                               aria-required="true"/>
+                        <small> 总是阻止邮箱为黑名单设置的用户注册。可以输入具体的邮箱地址或域名，多个地址请用英文逗号(,)。例如：sample.com, admin@sample.com 输入星号(*)则表示仅允许白名单允许的用户注册。 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 注册页面说明文字 </label>
+                    <div class="col-sm-6">
+                        <textarea  class="form-control required"
+                                   aria-required="true" placeholder="欢迎使用我们的服务，请注册以提交问题工单和查看工单处理！"/>
+                        <small> 用户注册页面的说明文字，用户在注册时表单上方的说明文字。</small>
+
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 欢迎邮件内容 </label>
+                    <div class="col-sm-6">
+                        <textarea  class="form-control required"
+                                   aria-required="true" placeholder=" 欢迎你使用我们的服务，请点击下面链接设置密码，然后登录系统！"/>
+                        <small> 用户注册成功后发送的欢迎邮件的内容，支持HTML代码。</small>
+                        <br/>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="option1"/> 管理员或客服添加用户后也发送此欢迎邮件 </label>
+                    </div>
+
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 允许用户修改密码 </label>
+                    <div class="col-sm-10">
+                        <div class="select-group">
+                            <label class="checkbox-inline"><input type="checkbox" value="option1"/> 开启 </label>
+                        </div>
+                        <small> 设置是否普通用户修改密码；如果您开启并设置了SSO单点登录功能，那么您普通用户的密码修改操作应该在您的系统上进行，管理员可以禁止普通用户修改密码 </small>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 业务记录 </label>
+                    <div class="col-sm-10">
+                        <div class="select-group">
+                            <label class="checkbox-inline"><input type="checkbox" value="option1"/> 开启 </label>
+                        </div>
+                        <small> 设置是否开启业务记录功能
+                            开启后，将在用户信息页面、通话界面和IM交谈界面启用业务记录功能 </small>
+                    </div>
+                </div>
+
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <button class="btn btn-primary" type="submit">保存设置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

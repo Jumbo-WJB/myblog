@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head><title>公司组织</title></head>
+<body>
+<div layout:fragment="wrapper-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <a class="btn btn-block btn-primary compose-mail"
+                           data-toggle="modal" data-target="#add-org-form-modal">添加新公司组织</a>
+                        <div class="space-25"></div>
+                        <h5>用户</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="../account/users.html" th:href="@{/users/}"> <i
+                                    class="fa fa-user "></i>普通用户</a></li>
+                            <li><a href="../account/agents.html" th:href="@{/agents/}"> <i class="fa fa-headphones"></i>坐席客服</a>
+                            </li>
+                            <li><a href="../account/admins.html" th:href="@{/admins/}"> <i
+                                    class="fa fa-user-secret"></i>管理员</a></li>
+                            <li><a href="index.html" th:href="@{/organizations/}"> <i class="fa fa-sitemap"></i>公司组织</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h2>公司组织</h2>
+                </div>
+                <div class="ibox-content">
+                    <div class="content-container">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="230">组织名称</th>
+                                    <th>描述</th>
+                                    <th width="130">创建时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="org : ${page.content}">
+                                    <td>
+                                        <a href="detail.html"
+                                           th:href="@{/organizations/{id}(id=${org.id})}"
+                                           th:text="${org.name}">杭州有赞科技有限公司</a>
+                                    </td>
+                                    <td th:text="${org.description}">-</td>
+                                    <td th:text="${#dates.format(org.createdAt, 'yyyy-MM-dd HH:mm')}">2016-11-22 14:48</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div th:unless="${page.totalPages}">
+                            <div class="middle-box text-center">
+                                <h3 class="font-bold">没有公司组织</h3>
+                            </div>
+                        </div>
+
+                        <div th:replace="element/pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="add-org-form-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <form id="add-org-form" method="post" class="form-horizontal" th:action="@{/organizations/}">
+                    <div class="modal-dialog">
+                        <div class="modal-content animated bounceInDown">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span
+                                        class="sr-only">Close</span></button>
+                                <h4 class="modal-title">添加新公司组织</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">组织名称</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="name" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">域名</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="domain" class="form-control"/>
+                                        <span class="help-block m-b-none">当新进普通用户的邮箱地址的域名为以上域名时，自动加入该公司组织</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

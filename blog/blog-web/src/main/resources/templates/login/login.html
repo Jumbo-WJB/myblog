@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>TokoVips Authenticator</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="/static/css/animate.css" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}"/>
+    <style type="text/css">
+        fieldset {
+            width: 300px;
+            margin: 200px auto 10px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 3px
+        }
+    </style>
+</head>
+<body onload="document.form.username.focus();" class="gray-bg">
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+
+            <h3 class="logo-name">YZH</h3>
+
+        </div>
+        <h3>Welcome to youzan-helpdesk</h3>
+        <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+            <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+        </p>
+        <p>Login in. To see it in action.</p>
+
+        <button  class="btn btn-primary block full-width m-b login">Login</button>
+        <a href="#"><small>Forgot password?</small></a>
+        <p class="m-t"> <small>2012-2017 © youzan.com | 2017 © helpdesk.youzan.com </small> </p>
+    </div>
+</div>
+<script src="/static/js/jquery-2.1.1.js" th:src="@{/js/jquery-2.1.1.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(".login").click(function(){
+        location.href="http://cas.qima-inc.com/public/oauth/authorize?debug=1&name=helpdesk";
+    })
+    /*]]>*/
+
+</script>
+</body>
+</html>
