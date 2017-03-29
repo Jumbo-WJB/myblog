@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="resource/layout">
+<head><title th:text="${post.content.title}">Post Title</title>
+</head>
+<body>
+<div layout:fragment="resource-content">
+    <div class="ibox-content">
+        <div class="pull-right">
+            <div class="tooltip-demo">
+                <a class="btn btn-white"
+                   th:href="@{/resources/posts/edit/{id}(id=${post.id})}">
+                    <i class="fa fa-pencil-square-o"></i>
+                </a>
+                <button class="btn btn-white " id="post-remove"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+
+        <input type="hidden" id="post-id" th:value="${post.id}" th:field="*{post.id}"/>
+
+        <h2 th:text="${post.content.title}">Their separate existence is a myth</h2>
+
+        <p class="small text-muted">
+            <i class="fa fa-clock-o">
+                <strong th:text="${#dates.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}"></strong>
+                <strong th:text="${post.content.author}">Best regards, Anthony Smith </strong>
+            </i>
+        </p>
+        <div class="hr-line-dashed"></div>
+        <div class="content-container">
+            <div style="max-width:1000px" th:utext="${post.content.description}">Content</div>
+        </div>
+    </div>
+</div>
+
+
+<div layout:fragment="javascript">
+    <script type="text/javascript">
+        $("#post-remove").click(function () {
+            var id = $("#post-id").val();
+            if (confirm("你确认要删除此知识库文档吗？")) {
+                $.get("/resources/posts/" + id + "/delete", function (data, success) {
+                    if (data == "success") {
+                        location.href = "/resources/posts/";
+                    } else {
+                        alert("delete failed");
+                    }
+                });
+            }
+        });
+    </script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>有赞服务台</title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" href="../static/css/summernote.css" th:href="@{/css/summernote.css}"/>
+    <link rel="stylesheet" href="../static/css/summernote-bs3.css" th:href="@{/css/summernote-bs3.css}"/>
+    <link rel="stylesheet" href="../static/css/toastr.min.css" th:href="@{/css/toastr.min.css}"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="../static/css/selectize.bootstrap3.css" th:href="@{/css/selectize.bootstrap3.css}"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css" th:href="@{/css/bootstrap-tagsinput.css}"/>
+</head>
+
+<body class="mini-navbar">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="logo-element">H</div>
+                </li>
+                <li><a href="/"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="nav-label">首页</span></a></li>
+                <!--<li><a th:href="@{/profiles/}"><i class="fa fa-medkit" aria-hidden="true"></i><span class="nav-label">诊断分析</span></a></li>-->
+                <!--<li><a th:href="@{/tickets/}"><i class="fa fa-list" aria-hidden="true"></i><span class="nav-label">工单中心</span></a></li>-->
+                <li><a th:href="@{/users/}"><i class="fa fa-address-book" aria-hidden="true"></i><span class="nav-label">用户与组</span></a></li>
+                <li><a th:href="@{/resources/}"><i class="fa fa-support" aria-hidden="true"></i><span class="nav-label">知识库</span></a></li>
+                <li><a th:href="@{/settings/}"><i class="fa fa-cog" aria-hidden="true"></i><span class="nav-label">设置</span></a></li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a th:href="@{/profiles/payments}"><i class="fa fa-credit-card" aria-hidden="true"></i>支 付<span class="nav-label">支付</span></a></li>
+                        <li><a th:href="@{/}"><i class="fa fa-credit-card" aria-hidden="true"></i>交 易<span class="nav-label">支付</span></a></li>
+                        <li><a th:href="@{/}"><i class="fa fa-credit-card" aria-hidden="true"></i>业 务1<span class="nav-label">支付</span></a></li>
+                        <li><a th:href="@{/}"><i class="fa fa-credit-card" aria-hidden="true"></i>业 务2<span class="nav-label">支付</span></a></li>
+                        <li><a th:href="@{/}"><i class="fa fa-credit-card" aria-hidden="true"></i>业 务3<span class="nav-label">支付</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+
+        <nav class="navbar navbar-static-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header white-bg col-lg-8">
+                <form role="search" class="form-horizontal" action="search_results.html">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                        <input type="text" placeholder="Search for something..." class="form-control" name="top-search" style="width: 100%" id="top-search"/>
+                        </div>
+                        </div>
+                </form>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span th:if ="${session.account_name}">
+                        <span class="m-r-sm text-muted welcome-message" th:text="'Welcome to HelpDesk , '+${session.account_name}"></span>
+                    </span>
+                    <span th:unless="${session.account_name}">
+                        <span class="m-r-sm text-muted welcome-message">Welcome to HelpDesk</span>
+                    </span>
+                </li>
+
+                <li th:if ="${session.account_name}">
+                    <a href="/account/logout"><i class="fa fa-sign-out"></i> Log out</a>
+                </li>
+                <li th:unless ="${session.account_name}">
+                    <a><i class="fa fa-sign-in login"> Log in</i></a>
+                </li>
+            </ul>
+
+        </nav>
+            </div>
+
+        <!--<div class="row border-bottom">-->
+            <!--<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">-->
+                <!--<div class="navbar-header">-->
+                    <!--<form role="search" class="navbar-form-custom" th:action="@{/search}">-->
+                        <!--<div class="form-group">-->
+                            <!--<input type="text" placeholder="点击此处搜索..."-->
+                                   <!--class="form-control" name="q" id="top-search"-->
+                                   <!--autocomplete="off" />-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<ul class="nav navbar-top-links navbar-right">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="#"><i class="fa fa-envelope"></i></a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="#"><i class="fa fa-bell"></i></a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="login.html"><i class="fa fa-sign-out"></i> 退出</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+            <!--</nav>-->
+        <!--</div>-->
+
+        <div class="wrapper wrapper-content" layout:fragment="wrapper-content">
+            <div class="middle-box text-center animated fadeInRightBig">
+                <h3 class="font-bold">This is page content</h3>
+                <div class="error-desc">
+                    You can create here any grid layout you want. And any variation layout you imagine:) Check out
+                    main dashboard and other site. It use many different layout.
+                    <br/><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <strong>Copyright</strong> 2012-2017 &copy; 杭州有赞科技有限公司
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Mainly scripts -->
+<script src="../static/js/jquery-2.1.1.js" th:src="@{/js/jquery-2.1.1.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/jquery.metisMenu.js" th:src="@{/js/jquery.metisMenu.js}"></script>
+<script src="../static/js/jquery.slimscroll.min.js" th:src="@{/js/jquery.slimscroll.min.js}"></script>
+
+<script src="../static/js/inspinia.js" th:src="@{/js/inspinia.js}"></script>
+<script src="../static/js/pace.min.js" th:src="@{/js/pace.min.js}"></script>
+<script src="../static/js/summernote.min.js" th:src="@{/js/summernote.min.js}"></script>
+<script src="../static/js/toastr.min.js" th:src="@{/js/toastr.min.js}"></script>
+<script src="../static/js/selectize.min.js" th:src="@{/js/selectize.min.js}"></script>
+<script src="../static/js/init.js" th:src="@{/js/init.js}"></script>
+
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": false,
+        "preventDuplicates": false,
+        "positionClass": "toast-top-center",
+        "showDuration": "400",
+        "hideDuration": "1000",
+        "timeOut": "6000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    $('.account-selector').selectize({
+        valueField: 'id',
+        labelField: 'nickname',
+        searchField: 'nickname',
+        create: false,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: '/ajax/accounts/search?q=' + encodeURIComponent(query),
+                type: 'GET',
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+</script>
+<script th:inline="javascript" th:if="${failed}">
+    /*<![CDATA[*/
+    toastr.error([[${failed}]]);
+    /*]]>*/
+</script>
+<script th:inline="javascript" th:if="${success}">
+    /*<![CDATA[*/
+    toastr.success([[${success}]]);
+    /*]]>*/
+</script>
+<script>
+    $('.input-tags').selectize({
+        persist: false,
+        createOnBlur: true,
+        create: true,
+        maxItems: 10
+    });
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+            $(".login").click(function(){
+                location.href="http://cas.qima-inc.com/public/oauth/authorize?debug=1&name=helpdesk";
+            })
+    /*]]>*/
+
+</script>
+<div layout:fragment="javascript"></div>
+
+</body>
+</html>

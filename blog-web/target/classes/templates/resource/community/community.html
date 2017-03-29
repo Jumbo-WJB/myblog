@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="resource/layout">
+<!--社区话题分类 -->
+<head><title> 社区话题分类 </title>
+</head>
+<body>
+<div layout:fragment="resource-content">
+    <div class="ibox-title">
+        <h5> 社区话题分类 </h5>
+        <div class="ibox-tools">
+            <button type="button" class="btn btn-outline btn-primary"> 添加社区话题 </button>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="panel panel-default">
+            <!--<div class="panel-heading">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-lg-4">-->
+                        <!--<h5 class="panel-title">-->
+                            <!--<a data-toggle="collapse" data-parent="#accordion" href="#global-panel-collapse"-->
+                               <!--aria-expanded="true" class="">帮助与支持</a>-->
+                        <!--</h5>-->
+                    <!--</div>-->
+                    <!--<div class="col-lg-8 text-right">-->
+                        <!--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">删除分区</button>-->
+                        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">编辑分区</button>-->
+                        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加子类</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div id="global-panel-collapse" class="panel-collapse collapse in">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="/resource/post/post"><h3> 摄影 </h3></a>
+                            </div>
+                            <div class="col-lg-8 text-right">
+                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#myModal"> 删除话题
+                                </button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal"> 编辑话题
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="/resource/post/post"><h3> 店铺 </h3></a>
+                            </div>
+                            <div class="col-lg-8 text-right">
+                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#myModal"> 删除话题
+                                </button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal"> 编辑话题
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">添加新分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="ibox-content">
+                        <form method="get" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">标题 *</label>
+
+                                <div class="col-sm-9">
+                                    <input id="userName" name="userName" type="text" class="form-control required"
+                                           aria-required="true"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">所属分区 *</label>
+
+                                <div class="col-sm-5">
+                                    <select class="form-control">
+                                        <option>帮助与支持</option>
+                                        <option>123</option>
+                                        <option>123</option>
+                                        <option>123</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">描述信息 *</label>
+
+                                <div class="col-sm-9">
+                                    <input id="userName" name="userName" type="text" class="form-control required"
+                                           aria-required="true"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">查看权限 *</label>
+
+                                <div class="col-sm-9">
+                                    <label class="checkbox-inline"><input type="checkbox" value="option1"/> 所有人 </label>
+                                    <label class="checkbox-inline"><input type="checkbox" value="option1"/> 已登录的用户 </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">语言 *</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control">
+                                        <option>中文</option>
+                                        <option>Englsh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

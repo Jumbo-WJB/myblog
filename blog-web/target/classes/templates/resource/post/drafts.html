@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="resource/layout">
+<head><title>文档草稿</title>
+</head>
+<body>
+<div layout:fragment="resource-content">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h2>文档草稿</h2>
+        </div>
+        <div class="ibox-content">
+            <div class="content-container">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th width="80">作者</th>
+                            <th width="80">分类</th>
+                            <th width="130">创建时间</th>
+                            <th width="130">最后更新</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="post : ${page.content}" th:attr="data-id=${post.id}">
+                            <td>
+                                <a th:href="@{/resources/posts/{id}(id=${post.id})}"
+                                   th:text="${post.content.title}">欢迎来到您的帮助中心</a>
+                            </td>
+                            <td th:text="${post.content.author}">王先生</td>
+                            <td><a href="#" th:text="${post.category.name}">公告与新闻</a></td>
+                            <td th:text="${#dates.format(post.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
+                            <td th:text="${#dates.format(post.updatedAt, 'yyyy-MM-dd HH:mm')}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div th:unless="${page.totalPages}">
+                    <div class="middle-box text-center">
+                        <h3 class="font-bold">没有相关文档</h3>
+                    </div>
+                </div>
+            </div>
+            <div th:replace="element/pagination"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

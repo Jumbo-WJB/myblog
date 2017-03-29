@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>有赞服务台</title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" href="../static/css/summernote.css" th:href="@{/css/summernote.css}"/>
+    <link rel="stylesheet" href="../static/css/summernote-bs3.css" th:href="@{/css/summernote-bs3.css}"/>
+    <link rel="stylesheet" href="../static/css/toastr.min.css" th:href="@{/css/toastr.min.css}"/>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="../static/css/selectize.bootstrap3.css" th:href="@{/css/selectize.bootstrap3.css}"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css" th:href="@{/css/bootstrap-tagsinput.css}"/>
+</head>
+<body id="page-top" class="landing-page  mini-navbar pace-done">
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99"
+         style="transform: translate3d(100%, 0px, 0px);">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:gray">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <form role="form" class="form-inline">
+                    <div class="form-group">
+                        <label for="exampleInputEmail2" class="sr-only">Email address</label>
+                        <input type="email" placeholder="Please Enter OrderNo" id="exampleInputEmail2"
+                               class="form-control"/>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a class="page-scroll" href="#page-top">首页</a></li>
+                    <li><a class="page-scroll" href="#order">订单</a></li>
+                    <li><a class="page-scroll" href="#vip">会员</a></li>
+                    <li><a class="page-scroll" href="#shop">店铺</a></li>
+                    <li><a class="page-scroll" href="#pay">支付</a></li>
+                    <li><a class="page-scroll" href="#express">物流</a></li>
+                    <li><a class="page-scroll" href="#ump">UMP</a></li>
+                    <li><a class="page-scroll" href="#price">价格中心</a></li>
+                    <li><a class="page-scroll" href="#timeline">生命周期</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section id="order" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>订单基本信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">库存状态</small>
+                            <h4>17</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">支付状态</small>
+                            <h4>支付回调成功</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">发货状态</small>
+                            <h4>代发货</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">物流类型</small>
+                            <h4>SF33729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否含有子订单</small>
+                            <h4>无</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">店铺id</small>
+                            <h4>3495</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">预订时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">更新时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单来源</small>
+                            <h4>微信渠道</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动id</small>
+                            <h4>AT8790</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动类型</small>
+                            <h4>满减优惠</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">ip地址</small>
+                            <h4>172.1.9.8</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注优先级</small>
+                            <h4>高</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注</small>
+                            <h4>麻烦发顺丰</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">会员信息</small>
+                            <h4>pickard</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单金额</small>
+                            <h4>17.90</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否使用优惠</small>
+                            <h4>使用优惠券</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">优惠金额</small>
+                            <h4>5.00</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="vip" class="container services">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>会员信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">库存状态</small>
+                            <h4>17</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">支付状态</small>
+                            <h4>支付回调成功</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">发货状态</small>
+                            <h4>代发货</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">物流类型</small>
+                            <h4>SF33729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否含有子订单</small>
+                            <h4>无</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">店铺id</small>
+                            <h4>3495</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">预订时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">更新时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单来源</small>
+                            <h4>微信渠道</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动id</small>
+                            <h4>AT8790</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动类型</small>
+                            <h4>满减优惠</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">ip地址</small>
+                            <h4>172.1.9.8</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注优先级</small>
+                            <h4>高</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注</small>
+                            <h4>麻烦发顺丰</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">会员信息</small>
+                            <h4>pickard</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单金额</small>
+                            <h4>17.90</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否使用优惠</small>
+                            <h4>使用优惠券</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">优惠金额</small>
+                            <h4>5.00</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="shop" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>店铺信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="pay" class="container services">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>支付信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">库存状态</small>
+                            <h4>17</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">支付状态</small>
+                            <h4>支付回调成功</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">发货状态</small>
+                            <h4>代发货</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">物流类型</small>
+                            <h4>SF33729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否含有子订单</small>
+                            <h4>无</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">店铺id</small>
+                            <h4>3495</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">预订时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">更新时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单来源</small>
+                            <h4>微信渠道</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动id</small>
+                            <h4>AT8790</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动类型</small>
+                            <h4>满减优惠</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">ip地址</small>
+                            <h4>172.1.9.8</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注优先级</small>
+                            <h4>高</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注</small>
+                            <h4>麻烦发顺丰</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">会员信息</small>
+                            <h4>pickard</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单金额</small>
+                            <h4>17.90</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否使用优惠</small>
+                            <h4>使用优惠券</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">优惠金额</small>
+                            <h4>5.00</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="express" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>物流信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="ump" class="container services">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>UMP</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="price" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>价格组成信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单号</small>
+                            <h4>E201743729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单id</small>
+                            <h4>7822345</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单类型</small>
+                            <h4>普通订单</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">付款方式</small>
+                            <h4>微信支付</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">买家联系方式</small>
+                            <h4>13892373721</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">状态</small>
+                            <h4>已支付</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">库存状态</small>
+                            <h4>17</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">支付状态</small>
+                            <h4>支付回调成功</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">发货状态</small>
+                            <h4>代发货</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">物流类型</small>
+                            <h4>SF33729345</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否含有子订单</small>
+                            <h4>无</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">店铺id</small>
+                            <h4>3495</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">预订时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">更新时间</small>
+                            <h4>2017-02-08 13:00:00</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单来源</small>
+                            <h4>微信渠道</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动id</small>
+                            <h4>AT8790</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">活动类型</small>
+                            <h4>满减优惠</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">ip地址</small>
+                            <h4>172.1.9.8</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注优先级</small>
+                            <h4>高</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单备注</small>
+                            <h4>麻烦发顺丰</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">会员信息</small>
+                            <h4>pickard</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">订单金额</small>
+                            <h4>17.90</h4>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <small class="stats-label">是否使用优惠</small>
+                            <h4>使用优惠券</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <small class="stats-label">优惠金额</small>
+                            <h4>5.00</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="timeline" class="container services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>生命周期</h1>
+
+                <p> 整个生命周期 </p>
+            </div>
+        </div>
+        <div class="row features-block">
+
+            <div class="col-lg-12">
+                <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>Meeting</h2>
+
+                            <p>Conference on the sales results for the previous year. Monica please examine sales trends
+                                in marketing and products. Below please find the current status of the sale.
+                            </p>
+                            <a href="#" class="btn btn-xs btn-primary"> More info</a>
+                            <span class="vertical-date"> Today <br/> <small>Dec 24</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>Decision</h2>
+
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since.</p>
+                            <a href="#" class="btn btn-xs btn-primary"> More info</a>
+                            <span class="vertical-date"> Tomorrow <br/> <small>Dec 26</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>Implementation</h2>
+
+                            <p>Go to shop and find some products. Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum has been the industry's. </p>
+                            <a href="#" class="btn btn-xs btn-primary"> More info</a>
+                            <span class="vertical-date"> Monday <br/> <small>Jan 02</small> </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/wow/wow.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function (event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+    });
+
+    var cbpAnimatedHeader = (function () {
+        var docElem = document.documentElement,
+                header = document.querySelector('.navbar-default'),
+                didScroll = false,
+                changeHeaderOn = 200;
+
+        function init() {
+            window.addEventListener('scroll', function (event) {
+                if (!didScroll) {
+                    didScroll = true;
+                    setTimeout(scrollPage, 250);
+                }
+            }, false);
+        }
+
+        function scrollPage() {
+            var sy = scrollY();
+            if (sy >= changeHeaderOn) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+</script>
+
+
+<div class="theme-config">
+    <div class="theme-config-box">
+        <div class="spin-icon">
+            <i class="fa fa-cogs fa-spin"></i>
+        </div>
+        <div class="skin-setttings">
+            <div class="title">Configuration</div>
+            <div class="setings-item">
+                    <span>
+                        Collapse menu
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu"/>
+                        <label class="onoffswitch-label" for="collapsemenu">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Fixed sidebar
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixedsidebar" class="onoffswitch-checkbox" id="fixedsidebar"/>
+                        <label class="onoffswitch-label" for="fixedsidebar">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Top navbar
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar"/>
+                        <label class="onoffswitch-label" for="fixednavbar">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Top navbar v.2
+                        <br/>
+                        <small>*Primary layout</small>
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixednavbar2" class="onoffswitch-checkbox" id="fixednavbar2"/>
+                        <label class="onoffswitch-label" for="fixednavbar2">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Boxed layout
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout"/>
+                        <label class="onoffswitch-label" for="boxedlayout">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="setings-item">
+                    <span>
+                        Fixed footer
+                    </span>
+
+                <div class="switch">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="fixedfooter" class="onoffswitch-checkbox" id="fixedfooter"/>
+                        <label class="onoffswitch-label" for="fixedfooter">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="title">Skins</div>
+            <div class="setings-item default-skin">
+                    <span class="skin-name ">
+                         <a href="#" class="s-skin-0">
+                             Default
+                         </a>
+                    </span>
+            </div>
+            <div class="setings-item blue-skin">
+                    <span class="skin-name ">
+                        <a href="#" class="s-skin-1">
+                            Blue light
+                        </a>
+                    </span>
+            </div>
+            <div class="setings-item yellow-skin">
+                    <span class="skin-name ">
+                        <a href="#" class="s-skin-3">
+                            Yellow/Purple
+                        </a>
+                    </span>
+            </div>
+            <div class="setings-item ultra-skin">
+                    <span class="skin-name ">
+                        <a href="md_skin/" class="md-skin">
+                            Material Design
+                        </a>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mainly scripts -->
+<script src="../static/js/jquery-2.1.1.js" th:src="@{/js/jquery-2.1.1.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/jquery.metisMenu.js" th:src="@{/js/jquery.metisMenu.js}"></script>
+<script src="../static/js/jquery.slimscroll.min.js" th:src="@{/js/jquery.slimscroll.min.js}"></script>
+
+<script src="../static/js/inspinia.js" th:src="@{/js/inspinia.js}"></script>
+<script src="../static/js/pace.min.js" th:src="@{/js/pace.min.js}"></script>
+<script src="../static/js/summernote.min.js" th:src="@{/js/summernote.min.js}"></script>
+<script src="../static/js/toastr.min.js" th:src="@{/js/toastr.min.js}"></script>
+<script src="../static/js/selectize.min.js" th:src="@{/js/selectize.min.js}"></script>
+<script src="../static/js/init.js" th:src="@{/js/init.js}"></script>
+
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": false,
+        "preventDuplicates": false,
+        "positionClass": "toast-top-center",
+        "showDuration": "400",
+        "hideDuration": "1000",
+        "timeOut": "6000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    $('.account-selector').selectize({
+        valueField: 'id',
+        labelField: 'nickname',
+        searchField: 'nickname',
+        create: false,
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: '/ajax/accounts/search?q=' + encodeURIComponent(query),
+                type: 'GET',
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
+        }
+    });
+</script>
+<script th:inline="javascript" th:if="${failed}">
+    /*<![CDATA[*/
+    toastr.error([[${failed}]]);
+    /*]]>*/
+</script>
+<script th:inline="javascript" th:if="${success}">
+    /*<![CDATA[*/
+    toastr.success([[${success}]]);
+    /*]]>*/
+</script>
+<script>
+    $('.input-tags').selectize({
+        persist: false,
+        createOnBlur: true,
+        create: true,
+        maxItems: 10
+    });
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(".login").click(function () {
+        location.href = "http://cas.qima-inc.com/public/oauth/authorize?debug=1&name=helpdesk";
+    })
+    /*]]>*/
+
+</script>
+
+<script>
+    // Config box
+
+    // Enable/disable fixed top navbar
+    $('#fixednavbar').click(function () {
+        if ($('#fixednavbar').is(':checked')) {
+            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $("body").removeClass('boxed-layout');
+            $("body").addClass('fixed-nav');
+            $('#boxedlayout').prop('checked', false);
+
+            if (localStorageSupport) {
+                localStorage.setItem("boxedlayout", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar", 'on');
+            }
+        } else {
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav');
+            $("body").removeClass('fixed-nav-basic');
+            $('#fixednavbar2').prop('checked', false);
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar2", 'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed top navbar
+    $('#fixednavbar2').click(function () {
+        if ($('#fixednavbar2').is(':checked')) {
+            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+            $("body").removeClass('boxed-layout');
+            $("body").addClass('fixed-nav').addClass('fixed-nav-basic');
+            $('#boxedlayout').prop('checked', false);
+
+            if (localStorageSupport) {
+                localStorage.setItem("boxedlayout", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar2", 'on');
+            }
+        } else {
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav').removeClass('fixed-nav-basic');
+            $('#fixednavbar').prop('checked', false);
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar2", 'off');
+            }
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar", 'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed sidebar
+    $('#fixedsidebar').click(function () {
+        if ($('#fixedsidebar').is(':checked')) {
+            $("body").addClass('fixed-sidebar');
+            $('.sidebar-collapse').slimScroll({
+                height: '100%',
+                railOpacity: 0.9
+            });
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixedsidebar", 'on');
+            }
+        } else {
+            $('.sidebar-collapse').slimscroll({destroy: true});
+            $('.sidebar-collapse').attr('style', '');
+            $("body").removeClass('fixed-sidebar');
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixedsidebar", 'off');
+            }
+        }
+    });
+
+    // Enable/disable collapse menu
+    $('#collapsemenu').click(function () {
+        if ($('#collapsemenu').is(':checked')) {
+            $("body").addClass('mini-navbar');
+            SmoothlyMenu();
+
+            if (localStorageSupport) {
+                localStorage.setItem("collapse_menu", 'on');
+            }
+
+        } else {
+            $("body").removeClass('mini-navbar');
+            SmoothlyMenu();
+
+            if (localStorageSupport) {
+                localStorage.setItem("collapse_menu", 'off');
+            }
+        }
+    });
+
+    // Enable/disable boxed layout
+    $('#boxedlayout').click(function () {
+        if ($('#boxedlayout').is(':checked')) {
+            $("body").addClass('boxed-layout');
+            $('#fixednavbar').prop('checked', false);
+            $('#fixednavbar2').prop('checked', false);
+            $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+            $("body").removeClass('fixed-nav');
+            $("body").removeClass('fixed-nav-basic');
+            $(".footer").removeClass('fixed');
+            $('#fixedfooter').prop('checked', false);
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixednavbar2", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixedfooter", 'off');
+            }
+
+
+            if (localStorageSupport) {
+                localStorage.setItem("boxedlayout", 'on');
+            }
+        } else {
+            $("body").removeClass('boxed-layout');
+
+            if (localStorageSupport) {
+                localStorage.setItem("boxedlayout", 'off');
+            }
+        }
+    });
+
+    // Enable/disable fixed footer
+    $('#fixedfooter').click(function () {
+        if ($('#fixedfooter').is(':checked')) {
+            $('#boxedlayout').prop('checked', false);
+            $("body").removeClass('boxed-layout');
+            $(".footer").addClass('fixed');
+
+            if (localStorageSupport) {
+                localStorage.setItem("boxedlayout", 'off');
+            }
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixedfooter", 'on');
+            }
+        } else {
+            $(".footer").removeClass('fixed');
+
+            if (localStorageSupport) {
+                localStorage.setItem("fixedfooter", 'off');
+            }
+        }
+    });
+
+    // SKIN Select
+    $('.spin-icon').click(function () {
+        $(".theme-config-box").toggleClass("show");
+    });
+
+    // Default skin
+    $('.s-skin-0').click(function () {
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-2");
+        $("body").removeClass("skin-3");
+    });
+
+    // Blue skin
+    $('.s-skin-1').click(function () {
+        $("body").removeClass("skin-2");
+        $("body").removeClass("skin-3");
+        $("body").addClass("skin-1");
+    });
+
+    // Inspinia ultra skin
+    $('.s-skin-2').click(function () {
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-3");
+        $("body").addClass("skin-2");
+    });
+
+    // Yellow skin
+    $('.s-skin-3').click(function () {
+        $("body").removeClass("skin-1");
+        $("body").removeClass("skin-2");
+        $("body").addClass("skin-3");
+    });
+
+    if (localStorageSupport) {
+        var collapse = localStorage.getItem("collapse_menu");
+        var fixedsidebar = localStorage.getItem("fixedsidebar");
+        var fixednavbar = localStorage.getItem("fixednavbar");
+        var fixednavbar2 = localStorage.getItem("fixednavbar2");
+        var boxedlayout = localStorage.getItem("boxedlayout");
+        var fixedfooter = localStorage.getItem("fixedfooter");
+
+        if (collapse == 'on') {
+            $('#collapsemenu').prop('checked', 'checked')
+        }
+        if (fixedsidebar == 'on') {
+            $('#fixedsidebar').prop('checked', 'checked')
+        }
+        if (fixednavbar == 'on') {
+            $('#fixednavbar').prop('checked', 'checked')
+        }
+        if (fixednavbar2 == 'on') {
+            $('#fixednavbar2').prop('checked', 'checked')
+        }
+        if (boxedlayout == 'on') {
+            $('#boxedlayout').prop('checked', 'checked')
+        }
+        if (fixedfooter == 'on') {
+            $('#fixedfooter').prop('checked', 'checked')
+        }
+    }
+</script>
+
+<div layout:fragment="javascript"></div>
+
+</body>
+</html>

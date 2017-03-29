@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head><title>创建新工单</title></head>
+<body>
+<div layout:fragment="wrapper-content">
+    <div class="animated fadeInDown">
+        <form id="ticket-create-form" method="post" th:action="@{/tickets/}" th:object="${ticket}">
+            <div class="row">
+                <div class="col-lg-10 col-md-9">
+                    <div class="mail-box">
+                        <div class="ibox-content">
+                            <div class="form-group">
+                                <label>标题*</label>
+                                <input type="text" th:field="*{title}" placeholder="" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>问题描述</label>
+                                <textarea th:field="*{description}" class="summernote"></textarea>
+                            </div>
+                        </div>
+                        <div class="mail-body text-right tooltip-demo">
+                            <input type="submit" class="btn btn-sm btn-white"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content mailbox-content">
+                            <div class="file-manager">
+                                <div class="form-group">
+                                    <label>工单发起人 *</label>
+                                    <input type="text" th:field="*{requester}"  th:value="${session.account_name}" placeholder="昵称、邮箱、电话"
+                                           class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>受理客服组</label>
+                                    <select class="form-control" th:field="*{group}">
+                                        <option value="">-</option>
+                                        <option th:each="g : ${groups}"
+                                                th:value="${g.id}"
+                                                th:text="${g.name}">Assignees
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>受理客服</label>
+                                    <select class="form-control" th:field="*{assignee}">
+                                        <option value="">-</option>
+                                        <option th:each="a : ${assignees}"
+                                                th:value="${a.id}"
+                                                th:text="${a.nickname}">Assignees
+                                        </option>
+                                    </select>
+                                </div>
+                                <hr/>
+
+                                <div class="form-group">
+                                    <label>工单状态</label>
+                                    <select class="form-control" th:field="*{status}">
+                                        <option th:each="s : ${statuses}"
+                                                th:value="${s.name()}"
+                                                th:text="${s.title}">Status
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>优先级</label>
+                                    <select class="form-control" th:field="*{priority}">
+                                        <option value="">-</option>
+                                        <option th:each="p : ${priorities}"
+                                                th:value="${p.name()}"
+                                                th:text="${p.title}">Priority
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div layout:fragment="javascript">
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({height: 300});
+
+            $("#ticket-create-form").validate({
+                rules: {
+                    title: {required: true},
+                    requester: {required: true}
+                }
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>
