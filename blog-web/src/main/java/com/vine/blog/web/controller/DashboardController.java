@@ -10,4 +10,14 @@ public class DashboardController {
     public String index() {
         return "dashboard";
     }
+
+
+    @RequestMapping("/tool/index")
+    public String tool() {
+        return "table";
+    }
+
+
+
+
 }
